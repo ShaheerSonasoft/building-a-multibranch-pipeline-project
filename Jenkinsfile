@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'echo "Hello from web-hook relay test!"'
+                bat 'echo "Hello from web-hook relay ssl desabled!"'
             }
         }
     }
