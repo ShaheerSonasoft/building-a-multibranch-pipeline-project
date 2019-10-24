@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'echo "Hello from github!"'
+                bat 'echo "Hello from github-webhook!"'
             }
         }
     }
