@@ -1,7 +1,6 @@
 node {
     stage ('Checkout'){
         checkout scm
-        echo "%env.TAG_NAME%"
     }
     stage('Build') {
         if(env.BRANCH_NAME == 'master'){
@@ -14,7 +13,8 @@ node {
         }
     }
     stage('Deploy'){
-        if(env.TAG_NAME == '*'){
+        if(env.TAG_NAME != null && env.TAG_NAME.toString().startsWith("v")){
+            echo env.TAG_NAME
             //bat 'call JenkinsScripts/start.bat'
         }
     }
