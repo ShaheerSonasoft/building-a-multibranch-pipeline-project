@@ -3,12 +3,12 @@ node {
         checkout scm
     }
     stage('Build') {
-        if((env.BRANCH_NAME == 'master')||(env.TAG_NAME != null && env.TAG_NAME.toString().startsWith("v"))){
+        if((env.TAG_NAME != null && env.TAG_NAME.toString().startsWith("v"))){
             bat 'call JenkinsScripts/build.bat'
         }
     }
     stage('Test') {
-        if((env.BRANCH_NAME == 'master')||(env.TAG_NAME != null && env.TAG_NAME.toString().startsWith("v"))){
+        if((env.TAG_NAME != null && env.TAG_NAME.toString().startsWith("v"))){
             bat 'call JenkinsScripts/test.bat'
         }
     }
